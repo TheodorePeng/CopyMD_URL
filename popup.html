@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>URL复制助手</h1>
+        </header>
+        
+        <div class="actions">
+            <button id="copyUrl" class="btn btn-primary">复制URL</button>
+            <button id="copyMarkdownUrl" class="btn btn-secondary">复制Markdown URL</button>
+        </div>
+        <p class="restricted-note">受保护页面（如 Chrome 设置页、Chrome 应用商店）不显示页面顶部提示，但复制仍有效。</p>
+        
+        <div class="settings">
+            <h3>设置</h3>
+            
+            <div class="setting-item">
+                <label class="switch">
+                    <input type="checkbox" id="waitMode">
+                    <span class="slider"></span>
+                </label>
+                <div class="setting-label">
+                    <strong>等待模式</strong>
+                    <p>开启后，先复制URL，等待期间按指定按键可复制Markdown URL</p>
+                </div>
+            </div>
+            
+            <div class="setting-item" id="waitTimeContainer">
+                <label for="waitTime">等待时间（秒）：</label>
+                <input type="number" id="waitTime" min="0.1" max="10" step="0.1" value="3.0">
+            </div>
+            
+            <div class="setting-item" id="waitKeyContainer">
+                <label for="waitKey">等待按键：</label>
+                <select id="waitKey">
+                    <option value="Alt">Option (Alt)</option>
+                    <option value="Meta">Command (⌘)</option>
+                    <option value="Shift">Shift (⇧)</option>
+                    <option value="Control">Control (⌃)</option>
+                </select>
+            </div>
+            
+            <div class="setting-item">
+                <label class="switch">
+                    <input type="checkbox" id="showContextMenu">
+                    <span class="slider"></span>
+                </label>
+                <div class="setting-label">
+                    <strong>显示右键菜单</strong>
+                    <p>在页面右键菜单中显示复制功能选项</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shortcuts">
+            <h3>快捷键</h3>
+            <p class="shortcut-desc">您可以自定义插件的快捷键</p>
+            <button id="openShortcutSettings" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                </svg>
+                设置快捷键
+            </button>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 
